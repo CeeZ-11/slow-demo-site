@@ -1,0 +1,32 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Lato", sans-serif; color: #222; background: #faf7f2; }
+h1, h2, h3 { font-family: "Playfair Display", serif; }
+
+.site-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; background: #1f3b2d; color: #fff; flex-wrap: wrap; }
+.logo { font-weight: 700; font-size: 20px; }
+.menu-toggle { background: transparent; color: #fff; border: 1px solid #fff; padding: 6px 12px; cursor: pointer; }
+.main-nav { display: none; width: 100%; }
+.main-nav.open { display: flex; gap: 16px; padding-top: 12px; }
+.main-nav a { color: #fff; }
+
+/* Injected late by app.js, pushes everything down (ISSUE 9) */
+.promo-banner { background: #f2c14e; padding: 24px; text-align: center; font-weight: 700; }
+
+.hero { position: relative; }
+.hero-img { width: 100%; display: block; }
+.hero-text { padding: 24px; }
+.hero-text h1 { font-size: 40px; margin: 0 0 8px; }
+
+.listings, .owners, .faq { padding: 24px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.card { background: #fff; border-radius: 8px; overflow: hidden; }
+.card img { width: 100%; display: block; }
+.card h3, .card p { margin: 8px 12px; }
+
+.low-contrast { color: #c9c4bb; }
+iframe { max-width: 100%; border: 0; }
+
+.accordion-btn { display: block; width: 100%; text-align: left; padding: 12px; margin-top: 8px; background: #fff; border: 1px solid #ddd; cursor: pointer; font-size: 16px; }
+.accordion-panel { padding: 0 12px; }
+
+.site-footer { padding: 24px; text-align: center; color: #666; }

@@ -1,0 +1,15 @@
+{
+  "name": "slow-demo-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A deliberately slow, fictional property-management page used to demo the PMW Speed Engine on a public site.",
+  "type": "module",
+  "scripts": {
+    "assets": "node scripts/generate-assets.mjs",
+    "dev": "node scripts/serve.mjs",
+    "check": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- This page is slow on purpose (a demo for the PMW Speed Engine). Keep it out of search. -->
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Slowpoke Property Co. | Speed demo</title>
+
+    <!-- ISSUE 1: render-blocking web font, no font-display, no preconnect -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700" />
+
+    <!-- ISSUE 2: big render-blocking stylesheet, ~95% of it unused -->
+    <link rel="stylesheet" href="/css/framework.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+
+    <!-- ISSUE 3: old jQuery, loaded synchronously in the head -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    <!-- ISSUE 4: synchronous "analytics" script that blocks the main thread on load -->
+    <script src="/js/analytics.js"></script>
+
+    <!-- ISSUE 5: the same script included twice -->
+    <script src="/js/carousel.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="logo">Slowpoke Property Co.</div>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      <nav id="main-nav" class="main-nav">
+        <a href="#listings">Listings</a>
+        <a href="#owners">For owners</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <!-- ISSUE 6: the LCP image is huge, lazy-loaded and has no width/height -->
+        <img class="hero-img" src="/img/hero.png" loading="lazy" alt="A row of houses at sunset" />
+        <div class="hero-text">
+          <h1>Find your next home, eventually.</h1>
+          <p>A pretend property manager whose website does almost everything wrong, so a speed audit has something to find.</p>
+        </div>
+      </section>
+
+      <section id="listings" class="listings">
+        <h2>Featured listings</h2>
+        <div class="cards">
+          <!-- ISSUE 7: oversized images, no dimensions; one has no alt text -->
+          <article class="card">
+            <img src="/img/listing-1.png" alt="Two-bedroom apartment" />
+            <h3>Maple Court, Unit 2B</h3>
+            <p>2 bed · 1 bath · $1,450/mo</p>
+          </article>
+          <article class="card">
+            <img src="/img/listing-2.png" />
+            <h3>Oak Street Townhome</h3>
+            <p>3 bed · 2 bath · $2,100/mo</p>
+          </article>
+          <article class="card">
+            <img src="/img/listing-3.png" alt="Studio with large windows" />
+            <h3>Birch Lofts, Studio 5</h3>
+            <p>Studio · 1 bath · $990/mo</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="owners" class="owners">
+        <h2>For owners</h2>
+        <p class="low-contrast">We handle rent collection, maintenance and leasing. This text is also hard to read on purpose.</p>
+        <!-- ISSUE 8: below-the-fold iframe that is not lazy-loaded -->
+        <iframe src="/embed/map.html" title="Office map" width="600" height="300"></iframe>
+      </section>
+
+      <section id="faq" class="faq">
+        <h2>FAQ</h2>
+        <div class="accordion">
+          <button class="accordion-btn" aria-expanded="false">How do I apply?</button>
+          <div class="accordion-panel" hidden><p>Fill in the application form and wait (this page is good at waiting).</p></div>
+          <button class="accordion-btn" aria-expanded="false">When is rent due?</button>
+          <div class="accordion-panel" hidden><p>On the 1st of every month.</p></div>
+          <button class="accordion-btn" aria-expanded="false">Do you allow pets?</button>
+          <div class="accordion-panel" hidden><p>Most properties allow cats and small dogs.</p></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Slowpoke Property Co. is fictional. This page is a deliberately slow demo.</p>
+    </footer>
+
+    <!-- ISSUE 5 (again): duplicate include -->
+    <script src="/js/carousel.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>
