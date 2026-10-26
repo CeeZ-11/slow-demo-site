@@ -21,18 +21,18 @@ test('1: Google Fonts loaded without font-display or preconnect', () => {
 });
 
 test('2: big, mostly unused stylesheet is render-blocking', () => {
-  assert.match(html, /<link rel="stylesheet" href="\/css\/framework\.css"/);
+  assert.match(html, /<link rel="stylesheet" href="css\/framework\.css"/);
   assert.ok(fs.statSync(path.join(pub, 'css', 'framework.css')).size > 30_000);
 });
 
 test('3 and 4: old jQuery and analytics load synchronously in the head', () => {
   const head = html.slice(0, html.indexOf('</head>'));
   assert.match(head, /<script src="https:\/\/code\.jquery\.com\/jquery-1\.12\.4\.min\.js"><\/script>/);
-  assert.match(head, /<script src="\/js\/analytics\.js"><\/script>/);
+  assert.match(head, /<script src="js\/analytics\.js"><\/script>/);
 });
 
 test('5: carousel.js is included twice', () => {
-  assert.equal(html.match(/src="\/js\/carousel\.js"/g)?.length, 2);
+  assert.equal(html.match(/src="js\/carousel\.js"/g)?.length, 2);
 });
 
 test('6: hero (LCP) image is large, lazy and unsized', () => {
@@ -44,7 +44,7 @@ test('6: hero (LCP) image is large, lazy and unsized', () => {
 
 test('7: listing images are oversized and one has no alt text', () => {
   for (const n of [1, 2, 3]) assert.ok(mb(`img/listing-${n}.png`) > 1);
-  assert.match(html, /<img src="\/img\/listing-2\.png" \/>/);
+  assert.match(html, /<img src="img\/listing-2\.png" \/>/);
 });
 
 test('8: iframe is not lazy-loaded', () => {

@@ -11,17 +11,17 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700" />
 
     <!-- ISSUE 2: big render-blocking stylesheet, ~95% of it unused -->
-    <link rel="stylesheet" href="/css/framework.css" />
-    <link rel="stylesheet" href="/css/site.css" />
+    <link rel="stylesheet" href="css/framework.css" />
+    <link rel="stylesheet" href="css/site.css" />
 
     <!-- ISSUE 3: old jQuery, loaded synchronously in the head -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
     <!-- ISSUE 4: synchronous "analytics" script that blocks the main thread on load -->
-    <script src="/js/analytics.js"></script>
+    <script src="js/analytics.js"></script>
 
     <!-- ISSUE 5: the same script included twice -->
-    <script src="/js/carousel.js"></script>
+    <script src="js/carousel.js"></script>
   </head>
   <body>
     <header class="site-header">
@@ -37,7 +37,7 @@
     <main>
       <section class="hero">
         <!-- ISSUE 6: the LCP image is huge, lazy-loaded and has no width/height -->
-        <img class="hero-img" src="/img/hero.png" loading="lazy" alt="A row of houses at sunset" />
+        <img class="hero-img" src="img/hero.png" loading="lazy" alt="A row of houses at sunset" />
         <div class="hero-text">
           <h1>Find your next home, eventually.</h1>
           <p>A pretend property manager whose website does almost everything wrong, so a speed audit has something to find.</p>
@@ -49,17 +49,17 @@
         <div class="cards">
           <!-- ISSUE 7: oversized images, no dimensions; one has no alt text -->
           <article class="card">
-            <img src="/img/listing-1.png" alt="Two-bedroom apartment" />
+            <img src="img/listing-1.png" alt="Two-bedroom apartment" />
             <h3>Maple Court, Unit 2B</h3>
             <p>2 bed · 1 bath · $1,450/mo</p>
           </article>
           <article class="card">
-            <img src="/img/listing-2.png" />
+            <img src="img/listing-2.png" />
             <h3>Oak Street Townhome</h3>
             <p>3 bed · 2 bath · $2,100/mo</p>
           </article>
           <article class="card">
-            <img src="/img/listing-3.png" alt="Studio with large windows" />
+            <img src="img/listing-3.png" alt="Studio with large windows" />
             <h3>Birch Lofts, Studio 5</h3>
             <p>Studio · 1 bath · $990/mo</p>
           </article>
@@ -70,7 +70,7 @@
         <h2>For owners</h2>
         <p class="low-contrast">We handle rent collection, maintenance and leasing. This text is also hard to read on purpose.</p>
         <!-- ISSUE 8: below-the-fold iframe that is not lazy-loaded -->
-        <iframe src="/embed/map.html" title="Office map" width="600" height="300"></iframe>
+        <iframe src="embed/map.html" title="Office map" width="600" height="300"></iframe>
       </section>
 
       <section id="faq" class="faq">
@@ -91,7 +91,7 @@
     </footer>
 
     <!-- ISSUE 5 (again): duplicate include -->
-    <script src="/js/carousel.js"></script>
-    <script src="/js/app.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>

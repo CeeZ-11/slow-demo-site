@@ -4,6 +4,8 @@ A one-page website for a fictional company, **Slowpoke Property Co.**, that is s
 It gives the PMW Speed Engine a public, client-free site to audit for the portfolio demo.
 The page is marked `noindex` so search engines skip it.
 
+Live: https://ceez-11.github.io/slow-demo-site/ (published by `.github/workflows/pages.yml` on every push to `main`).
+
 ## Commands
 
 ```bash
